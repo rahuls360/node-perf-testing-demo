@@ -1,4 +1,5 @@
 import express from 'express'
+import { startMetricsServer } from './metrics';
 
 const PORT = 3000;
 
@@ -10,4 +11,5 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
   console.log("Server is listening on PORT: ", PORT);
+  startMetricsServer();
 })
