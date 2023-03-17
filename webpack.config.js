@@ -1,14 +1,10 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
-import NodemonPlugin from 'nodemon-webpack-plugin';
-import nodeExternals from 'webpack-node-externals';
+const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+const NodemonPlugin = require('nodemon-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-export default {
+module.exports = {
   entry: './src/server.ts',
   devtool: 'inline-source-map',
   module: {
