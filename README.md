@@ -38,3 +38,6 @@ Using Typescript, ES modules, webpack for nodejs/express server. Tracking metric
 - Explore custom metrics in prometheus (CPU usage, response time)
 - Add other visualizations (gauge, histogram, counter, etc)
 - Try migrating grafana/prometheus to Docker.
+
+![Prometheus server's Grafana](public/grafana.png)
+![Node Grafana](public/node-grafana.png)
