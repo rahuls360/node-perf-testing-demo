@@ -1,11 +1,16 @@
 import express from 'express';
+import Prometheus from "prom-client";
 
 const PORT = 8000;
 const app = express();
 
 export function startMetricsServer() {
-  app.get('/metrics', (req, res) => {
-    res.send('Sent from metrics');
+  Prometheus.collectDefaultMetrics();
+  
+  app.get('/metrics', async(req, res) => {
+    res.set("Content-Type", Prometheus.register.contentType);
+
+    return res.send(await Prometheus.register.metrics());
   });
   app.listen(PORT, () => {
     console.log(`Tracking metrics on PORT: ${PORT}`);
